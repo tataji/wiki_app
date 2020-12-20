@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wiki_app/components/WikiItemCard.dart';
 import 'package:wiki_app/model/WikiModel.dart';
 
 class WikiDetailsPage extends StatefulWidget {
@@ -31,15 +32,11 @@ class WikiDetailsPageState extends State<WikiDetailsPage> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-             Padding(
-               padding: const EdgeInsets.all(8.0),
-               child: Text(widget.pages.title),
-             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(widget.pages.terms.description.toString()),
+            WikiItemCard(
+              pages: widget.pages,
             ),
           ],
+
         ),
       ),
     );
