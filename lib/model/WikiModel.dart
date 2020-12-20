@@ -128,7 +128,7 @@ Pages {
     //map['pageid'] = pageid;
    /// map['ns'] = ns;
     map['title'] = title;
-    map['thumbnail'] = thumbnail.toJson().toString();
+    //map['thumbnail'] = thumbnail.toJson().toString();
     return map;
   }
 }

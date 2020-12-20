@@ -3,7 +3,6 @@ import 'package:wiki_app/Components/WikiItemCard.dart';
 import 'package:wiki_app/localdb/SQLiteDatabaseProvider.dart';
 import 'package:wiki_app/model/WikiModel.dart';
 import 'package:wiki_app/service/ApiService.dart';
-
 import 'WikiDeatilsPage.dart';
 
 class WikiListPage extends StatefulWidget {

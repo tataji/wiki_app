@@ -26,18 +26,21 @@ class WikiDetailsPageState extends State<WikiDetailsPage> {
       appBar: AppBar(
         title: Text('Details page'),
       ),
-      body: Column(crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-           Padding(
-             padding: const EdgeInsets.all(8.0),
-             child: Text(widget.pages.title),
-           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(widget.pages.terms.description.toString()),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Text(widget.pages.title),
+             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(widget.pages.terms.description.toString()),
+            ),
+          ],
+        ),
       ),
     );
   }
