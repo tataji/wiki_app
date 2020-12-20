@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:wiki_app/Components/WikiItemCard.dart';
 import 'package:wiki_app/model/WikiModel.dart';
-import 'package:wiki_app/service/ApiService.dart';
 
-class WikiListPage extends StatefulWidget {
-  WikiListPage() : super();
+class WikiDetailsPage extends StatefulWidget {
+  Pages pages;
+
+  WikiDetailsPage(this.pages) : super();
+
   @override
-  WikiListPageState createState() => WikiListPageState();
+  WikiDetailsPageState createState() => WikiDetailsPageState();
 }
 
-class WikiListPageState extends State<WikiListPage> {
+class WikiDetailsPageState extends State<WikiDetailsPage> {
   double width;
   double height;
-  APiService apiService = new APiService();
   @override
   void initState() {
     // TODO: implement initState
@@ -29,7 +29,14 @@ class WikiListPageState extends State<WikiListPage> {
       body: Column(crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-
+           Padding(
+             padding: const EdgeInsets.all(8.0),
+             child: Text(widget.pages.title),
+           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(widget.pages.terms.description.toString()),
+          ),
         ],
       ),
     );

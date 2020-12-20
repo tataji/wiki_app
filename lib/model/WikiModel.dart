@@ -80,7 +80,9 @@ class Redirects {
 }
 
 @JsonSerializable()
-class Pages {
+class
+
+Pages {
   int pageid;
   int ns;
   String title;
@@ -126,7 +128,7 @@ class Pages {
     //map['pageid'] = pageid;
    /// map['ns'] = ns;
     map['title'] = title;
-   // map['index'] = index;
+    map['thumbnail'] = thumbnail.toJson().toString();
     return map;
   }
 }

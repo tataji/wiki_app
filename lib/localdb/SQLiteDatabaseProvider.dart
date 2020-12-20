@@ -22,8 +22,9 @@ class SQLiteDatabaseProvider {
     String path = join(directory.path, "Wiki.db");
     String createTableEmployee = "CREATE TABLE $tableName ("
         "auto_id INTEGER primary key AUTOINCREMENT,"
-        "title TEXT"
-        //"status TEXT"
+        "title TEXT,"
+        "imageUrl TEXT,"
+        "description TEXT,"
         ")";
     return await openDatabase(path, version: 1, onCreate: (Database db, int version) async {
           await db.execute(createTableEmployee);

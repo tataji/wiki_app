@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wiki_app/model/WikiModel.dart';
 
@@ -32,18 +33,26 @@ class WikiItemCard extends StatelessWidget {
                   spreadRadius: 0)
             ],
           ),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Row(crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              pages.thumbnail!=null?Image.network(pages.thumbnail.source):Container(),
+              pages.thumbnail!=null?Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(width:50,height: 50,
+                    child: Image.network(pages.thumbnail.source)),
+              ):Container(width:50,height: 50,),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('Name: ${pages.title}'),
+                child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text('Name: ${pages.title}'),
+                    Container(width: width-150,
+                        child: Text('Description: ${pages.terms==null?"NA":pages.terms.description}')),
+                  ],
+                ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Description: ${pages.terms==null?"NA":pages.terms.description}'),
-              ),
+
             ],
           ),
         ),

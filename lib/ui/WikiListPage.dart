@@ -4,6 +4,8 @@ import 'package:wiki_app/localdb/SQLiteDatabaseProvider.dart';
 import 'package:wiki_app/model/WikiModel.dart';
 import 'package:wiki_app/service/ApiService.dart';
 
+import 'WikiDeatilsPage.dart';
+
 class WikiListPage extends StatefulWidget {
   WikiListPage() : super();
   @override
@@ -47,7 +49,10 @@ class WikiListPageState extends State<WikiListPage> {
                         child: WikiItemCard(
                           pages: data.data[index],
                           press: () {
-
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => WikiDetailsPage(data.data[index])),
+                            );
                           },),
                       );
                     },
@@ -61,14 +66,14 @@ class WikiListPageState extends State<WikiListPage> {
     );
   }
   Future<List<Pages>> getWikiPageDetails() async {
-    List<Pages> pagesList = await SQLiteDatabaseProvider.db.getAllPagesListStoredLocalDb();
-    if(pagesList.isNotEmpty){
-      return pagesList;
-    }else {
+    // List<Pages> pagesList = await SQLiteDatabaseProvider.db.getAllPagesListStoredLocalDb();
+    // if(pagesList.isNotEmpty){
+    //   return pagesList;
+    // }else {
       WikiModel wikiModel = await apiService.fetchWikiDetails();
       insertPagesToSQLiteData(wikiModel.query.pages);
       return wikiModel.query.pages;
-    }
+   // }
   }
   void insertPagesToSQLiteData(List<Pages> pagesList) async {
     for (int i = 0; i < pagesList.length; i++) {
